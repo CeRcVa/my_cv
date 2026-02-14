@@ -82,11 +82,13 @@ TEMPLATES = [
 WSGI_APPLICATION = "resume_backend.wsgi.application"
 
 # Database (SQLite for Docker + local)
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.getenv("SQLITE_PATH", str(BASE_DIR / "db.sqlite3")),
-    }
+  "default": {
+    "ENGINE": "django.db.backends.sqlite3",
+    "NAME": BASE_DIR / "db.sqlite3",
+  }
 }
 
 
