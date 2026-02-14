@@ -15,16 +15,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / ".env")
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret")
+SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key-change-me")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "0") == "1"
+DEBUG = os.getenv("DEBUG", "1") == "1"
 
-ALLOWED_HOSTS = [
-    h.strip()
-    for h in os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
-    if h.strip()
-]
+ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")]
 
 # Application definition
 INSTALLED_APPS = [
