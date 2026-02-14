@@ -1,0 +1,63 @@
+# -----------------
+# OS / Editor
+# -----------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# -----------------
+# ENV / Secrets
+# -----------------
+.env
+.env.*
+*.env
+
+# -----------------
+# Python / Django
+# -----------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+
+venv/
+.venv/
+env/
+
+# Django media & static build
+media/
+staticfiles/
+
+# logs
+*.log
+
+# -----------------
+# Node / Vite / React
+# -----------------
+node_modules/
+dist/
+build/
+
+# vite cache
+.vite/
+
+# -----------------
+# Docker
+# -----------------
+*.pid
+*.sock
+
+# -----------------
+# Coverage / tests
+# -----------------
+.coverage
+htmlcov/
+.pytest_cache/
+
+# -----------------
+# Misc
+# -----------------
+*.swp

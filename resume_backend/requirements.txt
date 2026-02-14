@@ -1,0 +1,8 @@
+Django==6.0.2
+djangorestframework
+django-cors-headers
+python-dotenv
+gunicorn
+whitenoise
+django-axes
+Pillow
