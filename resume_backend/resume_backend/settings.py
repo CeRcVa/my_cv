@@ -155,6 +155,7 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
 ]
 
+AXES_LOCKOUT_PARAMETERS = ["192.168.1.51"]
 AXES_FAILURE_LIMIT = int(os.getenv("AXES_FAILURE_LIMIT", "5"))
 AXES_COOLOFF_TIME = float(os.getenv("AXES_COOLOFF_TIME", "1"))  # hours
 AXES_RESET_ON_SUCCESS = True
