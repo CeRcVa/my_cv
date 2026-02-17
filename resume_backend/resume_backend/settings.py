@@ -85,7 +85,7 @@ DATABASE_URL = os.getenv("DATABASE_URL", "")
 
 if DATABASE_URL:
     DATABASES = {
-        "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
+        "default": dj_database_url.parse(DATABASE_URL, conn_max_age=0, ssl_require=True)
     }
 else:
     DATABASES = {
@@ -155,9 +155,9 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
 ]
 
-AXES_FAILURE_LIMIT = int(os.getenv("AXES_FAILURE_LIMIT", "5"))
-AXES_COOLOFF_TIME = float(os.getenv("AXES_COOLOFF_TIME", "1"))  # hours
-AXES_RESET_ON_SUCCESS = True
+# AXES_FAILURE_LIMIT = int(os.getenv("AXES_FAILURE_LIMIT", "5"))
+# AXES_COOLOFF_TIME = float(os.getenv("AXES_COOLOFF_TIME", "1"))  # hours
+# AXES_RESET_ON_SUCCESS = True
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
