@@ -19,7 +19,7 @@ SECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key-change-me")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv("DEBUG", "1") == "1"
+DEBUG = os.getenv("DEBUG", "0") == "1"
 
 ALLOWED_HOSTS = [h.strip() for h in os.getenv("ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")]
 
@@ -46,7 +46,8 @@ MIDDLEWARE = [
 
     # WhiteNoise must be right after SecurityMiddleware
     "whitenoise.middleware.WhiteNoiseMiddleware",
-
+    "corsheaders.middleware.CorsMiddleware",
+    "django.middleware.common.CommonMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -101,13 +102,17 @@ TIME_ZONE = "Asia/Tbilisi"
 USE_I18N = True
 USE_TZ = True
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
 # CORS (Don't allow all in production)
 CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = [
-    o.strip()
-    for o in os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
-    if o.strip()
-]
+# CORS_ALLOWED_ORIGINS = [
+#     o.strip()
+#     for o in os.getenv("CORS_ALLOWED_ORIGINS", "").split(",")
+#     if o.strip()
+# ]
 
 # Static & Media
 STATIC_URL = "/static/"
@@ -149,3 +154,5 @@ AXES_RESET_ON_SUCCESS = True
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"

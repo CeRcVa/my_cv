@@ -47,3 +47,4 @@ export function resolveMediaUrl(url?: string | null) {
 
   return `${API_BASE}/${url}`;
 }
+
