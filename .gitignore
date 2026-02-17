@@ -10,8 +10,8 @@ Thumbs.db
 # ENV / Secrets
 # -----------------
 .env
-.env.*
-*.env
+.env.local
+.env.production
 
 # -----------------
 # Python / Django
