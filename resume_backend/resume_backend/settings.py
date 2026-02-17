@@ -157,7 +157,9 @@ AUTHENTICATION_BACKENDS = [
 
 AXES_FAILURE_LIMIT = int(os.getenv("AXES_FAILURE_LIMIT", "5"))
 AXES_COOLOFF_TIME = float(os.getenv("AXES_COOLOFF_TIME", "1"))  # hours
-AXES_RESET_ON_SUCCESS = False
+AXES_RESET_ON_SUCCESS = True
+AXES_ENABLED = False
+
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
