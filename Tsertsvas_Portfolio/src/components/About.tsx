@@ -1,5 +1,5 @@
 import type { Profile } from "../types";
-import { resolveMediaUrl } from "../services/api";
+import profileImg from "./assets/profile.jpg";
 
 export default function About({ profile }: { profile: Profile | null }) {
   return (
@@ -26,7 +26,11 @@ export default function About({ profile }: { profile: Profile | null }) {
 
         <div className="avatarWrap">
           {profile?.photo ? (
-            <img className="avatar" src={resolveMediaUrl(profile?.photo)} alt={profile?.name ?? "Profile"} />
+            <img
+            src={profileImg}
+            alt={profile?.name ?? "Profile"}
+            className="avatarImg"
+            />
           ) : (
             <div className="avatar" />
           )}

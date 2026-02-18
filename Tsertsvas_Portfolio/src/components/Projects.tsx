@@ -1,6 +1,17 @@
 import type { Project } from "../types";
 import { resolveMediaUrl } from "../services/api";
 
+import p1 from "../assets/projects/project1.png";
+import p2 from "../assets/projects/project2.png";
+import p3 from "../assets/projects/project3.png";
+
+// 🔥 აქ ჩაწერე ზუსტად ის სახელები, რაც Admin-იდან მოდის (p.name)
+const projectImages: Record<string, string> = {
+  "GelGuru": p1,
+  "Unsplash-project": p2,
+  "Tsertsvas_Portfolio": p3,
+};
+
 export default function Projects({ projects }: { projects: Project[] }) {
   return (
     <section id="projects" className="section">
@@ -11,33 +22,36 @@ export default function Projects({ projects }: { projects: Project[] }) {
           <div className="empty">ჯერ Projects არ არის დამატებული Admin-ში.</div>
         ) : (
           <div className="grid3">
-            {projects.map((p) => (
-              <div className="card" key={p.id}>
-                {p.image ? (
-                  <img
-                    className="projectImg"
-                    src={resolveMediaUrl(p.image ?? "")}
-                    alt={p.name}
-                  />
-                ) : (
-                  <div className="projectImg" />
-                )}
+            {projects.map((p) => {
+              const imgSrc =
+                (p.image ? resolveMediaUrl(p.image) : "") ||
+                projectImages[p.name] ||
+                "";
 
-                <div className="projectName">{p.name}</div>
-                <p className="projectDesc">{p.description}</p>
+              return (
+                <div className="card" key={p.id}>
+                  {imgSrc ? (
+                    <img className="projectImg" src={imgSrc} alt={p.name} />
+                  ) : (
+                    <div className="projectImg" />
+                  )}
 
-                {p.link ? (
-                  <a
-                    className="projectLink"
-                    href={p.link}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    View Project →
-                  </a>
-                ) : null}
-              </div>
-            ))}
+                  <div className="projectName">{p.name}</div>
+                  <p className="projectDesc">{p.description}</p>
+
+                  {p.link ? (
+                    <a
+                      className="projectLink"
+                      href={p.link}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      View Project →
+                    </a>
+                  ) : null}
+                </div>
+              );
+            })}
           </div>
         )}
       </div>

@@ -1,6 +1,14 @@
 import type { Certificate } from "../types";
 import { resolveMediaUrl } from "../services/api";
 
+import c1 from "../assets/certificate/certificate1.png";
+import c2 from "../assets/certificate/certificate2.png";
+
+const certificateImages: Record<string, string> = {
+  "BACKEND DEVELOMENT": c1,
+  "FRONTEND DEVELOPMENT: REACT": c2,
+};
+
 export default function Certificates({
   certificates,
 }: {
@@ -12,29 +20,38 @@ export default function Certificates({
         <h2 className="title">Certificates</h2>
 
         {certificates.length === 0 ? (
-          <div className="empty">Certificates ჯერ არ არის დამატებული Admin-ში.</div>
+          <div className="empty">
+            Certificates ჯერ არ არის დამატებული Admin-ში.
+          </div>
         ) : (
           <div className="grid3">
-            {certificates.map((c) => (
-              <div key={c.id} className="card">
-                {c.image ? (
-                  <img
-                    className="projectImg"
-                    src={resolveMediaUrl(c.image)}
-                    alt={c.title}
-                    loading="lazy"
-                  />
-                ) : (
-                  <div className="projectImg" />
-                )}
+            {certificates.map((c) => {
+              const imgSrc =
+                (c.image ? resolveMediaUrl(c.image) : "") ||
+                certificateImages[c.title] ||
+                "";
 
-                <div className="projectName">{c.title}</div>
+              return (
+                <div key={c.id} className="card">
+                  {imgSrc ? (
+                    <img
+                      className="projectImg"
+                      src={imgSrc}
+                      alt={c.title}
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="projectImg" />
+                  )}
 
-                <div className="muted">
-                  {c.issued_by} • {c.year}
+                  <div className="projectName">{c.title}</div>
+
+                  <div className="muted">
+                    {c.issued_by} • {c.year}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         )}
       </div>
