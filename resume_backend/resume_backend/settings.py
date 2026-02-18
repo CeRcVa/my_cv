@@ -106,10 +106,6 @@ CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = [
     o.strip() for o in os.getenv("CORS_ALLOWED_ORIGINS", "").split(",") if o.strip()
 ]
-# თუ მომავალში დაგჭირდება cookie/CSRF protected POST-ები ფრონტიდან:
-# CSRF_TRUSTED_ORIGINS = [
-#     o.strip() for o in os.getenv("CSRF_TRUSTED_ORIGINS", "").split(",") if o.strip()
-# ]
 
 # --- Static & Media ---
 STATIC_URL = "/static/"
@@ -146,7 +142,6 @@ AXES_COOLOFF_TIME = float(os.getenv("AXES_COOLOFF_TIME", "1"))
 AXES_RESET_ON_SUCCESS = True
 AXES_LOCKOUT_PARAMETERS = ["ip_address"] 
 
-# დროებით რომ არ დაგლოქოს ადმინში სანამ გაასწორებ ყველაფერს:
 AXES_ENABLED = os.getenv("AXES_ENABLED", "0") == "1"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

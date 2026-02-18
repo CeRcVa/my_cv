@@ -9,7 +9,7 @@ export default function About({ profile }: { profile: Profile | null }) {
           <div className="kicker">PORTFOLIO</div>
 
           <h1 className="h1">
-            Hi, I’m <span>{profile?.name ?? "Your Name"}</span>
+            Hi, I’m <span>{profile?.name ?? "..."}</span>
           </h1>
 
           <div className="sub">

@@ -7,7 +7,10 @@ export default function Courses({ courses }: { courses: Course[] }) {
         <h2 className="title">Courses</h2>
 
         {courses.length === 0 ? (
-          <div className="empty">Courses ჯერ არ არის დამატებული Admin-ში.</div>
+          <div className="empty">
+            გთხოვთ მოითმინოთ 1 ან 2 წუთი რომ მონაცემები განახლდეს.
+            Please wait 1 or 2 minutes for the data to refresh.
+          </div>
         ) : (
           <div className="grid3">
             {courses.map((c) => (

@@ -21,7 +21,8 @@ export default function Certificates({
 
         {certificates.length === 0 ? (
           <div className="empty">
-            Certificates ჯერ არ არის დამატებული Admin-ში.
+            გთხოვთ მოითმინოთ 1 ან 2 წუთი რომ მონაცემები განახლდეს.
+            Please wait 1 or 2 minutes for the data to refresh.
           </div>
         ) : (
           <div className="grid3">
