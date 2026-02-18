@@ -29,9 +29,12 @@ export default function About({ profile }: { profile: Profile | null }) {
         </div>
 
         <div className="avatarWrap">
-          <div className="avatarInner">
-            <img src={profileImg} alt="Profile" className="avatarImg" />
-          </div>
+          <img
+            src={profileImg}
+            alt={profile?.name ?? "Profile"}
+            className="avatarImg"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>

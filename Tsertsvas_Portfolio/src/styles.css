@@ -199,16 +199,28 @@ body {
   box-shadow: var(--shadow);
   margin-left:auto;
   margin-right:auto;
+  overflow: hidden; /* ✅ ეს აკლდა */
 }
 
+.avatarImg{
+  width: 300px;
+  height: 300px;
+  border-radius: 999px;
+  object-fit: cover; /* ✅ მთავარი */
+  background: #e2e8f0;
+  border: 6px solid rgba(255,255,255,0.9);
+  display: block;
+}
+
+/* fallback (თუ ოდესმე დაგჭირდება div placeholder) */
 .avatar{
   width: 300px;
   height: 300px;
   border-radius: 999px;
-  object-fit: cover;
   background: #e2e8f0;
   border: 6px solid rgba(255,255,255,0.9);
 }
+
 
 /* ===== Cards / Grid ===== */
 .title{
@@ -283,7 +295,7 @@ body {
 @media (max-width: 900px){
   .heroGrid{ grid-template-columns: 1fr; }
   .avatarWrap{ width: 320px; height: 320px; }
-  .avatar{ width: 270px; height: 270px; }
+  .avatarImg{ width: 270px; height: 270px; }
   .h1{ font-size: 44px; }
   .grid3{ grid-template-columns: 1fr; }
 }
