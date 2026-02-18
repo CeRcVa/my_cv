@@ -1,5 +1,5 @@
 import type { Profile } from "../types";
-import profileImg from "./assets/profile.jpg";
+import profileImg from "../assets/profile.jpg";
 
 export default function About({ profile }: { profile: Profile | null }) {
   return (
