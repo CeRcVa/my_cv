@@ -19,21 +19,21 @@ export default function About({ profile }: { profile: Profile | null }) {
           </div>
 
           <div className="btnRow">
-            <a className="btn btnPrimary" href="#projects">View Projects →</a>
-            <a className="btn" href="#skills">My Skills</a>
+            <a className="btn btnPrimary" href="#projects">
+              View Projects →
+            </a>
+            <a className="btn" href="#skills">
+              My Skills
+            </a>
           </div>
         </div>
 
         <div className="avatarWrap">
-          {profile?.photo ? (
-            <img
+          <img
             src={profileImg}
             alt={profile?.name ?? "Profile"}
             className="avatarImg"
-            />
-          ) : (
-            <div className="avatar" />
-          )}
+          />
         </div>
       </div>
     </section>
