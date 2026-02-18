@@ -1,5 +1,7 @@
 import axios from "axios";
+import.meta.env.VITE_API_BASE
 
+console.log("VITE_API_BASE =", import.meta.env.VITE_API_BASE);
 export const API_BASE = import.meta.env.VITE_API_BASE ?? "";
 
 const api = axios.create({
